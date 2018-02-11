@@ -16,8 +16,8 @@ module.exports = function (server) {
 
 function getMsgContent (obj) {
   if (obj.value && obj.value.content) return obj.value.content
-
-  return obj
+  else if (obj.content) return obj.content
+  else return obj
 }
 
 

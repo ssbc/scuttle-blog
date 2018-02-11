@@ -35,9 +35,9 @@ blog.async.fetch(msg.key, (err, success) => {
 
 ## Instance API
 
-### `blog.obs.get(keyOrMsg) => Observeable`
+### `blog.obs.get(blogMsg) => Observeable`
 
-`keyOrMsg` `(String|Object)` - either a msg key or a whole message.
+`blogMsg` `(Object)` - a blog message (or the content of a `blogMsg`)
 
 The observeable returned is [Mutant Struct](https://github.com/mmckegg/mutant#struct) which emits data of the form:
 
@@ -60,11 +60,11 @@ This method called `blog.async.fetch` under the hood.
 `msg` - is a message from a server stream (or the message content).
 
 
-### `blog.async.fetch(keyOrMsg, cb)`
+### `blog.async.fetch(msg, cb)`
 
 Blogs store the body of their text as an attachement. In Scuttlebutt, attachments have to be manually requested, hence this method.
 
-`keyOrMsg` `(String|Object)` - either a msg key or a whole message.
+`key` `(Object)` - a blog msg
 
 `cb` `(function)` - a callback with the standard signature `(err, success)` where `success` is a `Boolean`
 
@@ -87,4 +87,11 @@ Blog message content:
 ## Development
 
 Run the tests with `npm test`
+
+Things could implement in future:
+- have methods take a msg or a msgKey
+- blog creation
+- blog editing
+- blog drafts (encrypted, but later revealed .. or just republished)
+
 

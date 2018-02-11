@@ -2,22 +2,23 @@ const { Struct, Value } = require('mutant')
 const fetch = require('../../async/fetch')
 
 module.exports = function (server) {
-  return function get (blog) {
-    fetch(blog, (err, success) 
-    if (!isBlog(blog)) return cb(`Not a valid blog ${JSON.stringify(blog, null, 2)}`)
+  return function get (blogMsg) {
+    fetch(blogMsg, (err, success) => {
 
-    server.blobs.want(getBlob(blog), (err, success) => {
-      if (err) throw err
-      
-      if (success) cb(null, success)
-      else cb(null, 'Could not fetch blog content')
-    })
+    }
   }
 }
 
-function getBlob (msg) {
-  if (msg.value.content && msg.value.content.content) return obj.value.content
+function Blog (blogMsg) {
+  var blogMsgBody = blogMsg.key
+    ? blogMsg.value.content
 
-  return obj
+  return Struct({
+    title,
+    summary,
+    thumbnail,
+    content,
+    channel
+  })
 }
 
