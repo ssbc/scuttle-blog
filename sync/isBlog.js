@@ -1,5 +1,7 @@
 const validator = require('is-my-json-valid')
 const schema = require('../schema/blog')
+const getMsgContent = require('../lib/getMsgContent')
+
 const isBlogContent = validator(schema, {verbose: true})
 
 // server is not used here. Closure pattern is just for consistency of use with other functions.
@@ -12,12 +14,6 @@ module.exports = function (server) {
 
     return result
   }
-}
-
-function getMsgContent (obj) {
-  if (obj.value && obj.value.content) return obj.value.content
-  else if (obj.content) return obj.content
-  else return obj
 }
 
 

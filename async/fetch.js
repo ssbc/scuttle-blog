@@ -1,4 +1,4 @@
-const isBlog = require('../../isBlog')
+const isBlog = require('../isBlog')
 
 // TODO take blog or blogKey?
 
@@ -7,7 +7,10 @@ module.exports = function (server) {
     if (!isBlog(blog)) return cb(`Not a valid blog ${JSON.stringify(blog, null, 2)}`)
 
     server.blobs.want(getBlob(blog), (err, success) => {
-      if (err) return cb(err)
+      if (err) {
+        if (cb) return cb(err)
+        else throw err
+      }
       
       cb(null, success)
     })
@@ -16,8 +19,8 @@ module.exports = function (server) {
 
 function getBlob (msg) {
   // is msg of form { key, value }
-  if (msg.value.content && msg.value.content.content) return msg.value.content.content
+  if (msg.value.content && msg.value.content.blog) return msg.value.content.blog
   // is just body of the message, 'msg content'
-  else if (msg.content) return msg.content
+  else if (msg.blog) return msg.blog
 }
 
