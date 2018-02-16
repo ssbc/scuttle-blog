@@ -1,4 +1,3 @@
-const { Struct, Value, Array: MutantArray } = require('mutant')
 const pull = require('pull-stream')
 const fetch = require('../async/fetch')
 const isBlog = require('../isBlog')
@@ -28,5 +27,3 @@ module.exports = function (server) {
     return obs
   }
 }
-
-

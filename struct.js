@@ -14,4 +14,3 @@ module.exports = function Blog (blogMsg) {
     errors: MutantArray()
   })
 }
-

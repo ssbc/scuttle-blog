@@ -15,5 +15,3 @@ module.exports = function (server) {
     return result
   }
 }
-
-

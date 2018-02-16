@@ -1,13 +1,13 @@
 const methods = {
   async: {
     create: require('./async/fetch'),
-    get: require('./async/get'),
+    get: require('./async/get')
   },
   obs: {
-    get: require('./obs/get'),
+    get: require('./obs/get')
   },
   sync: {
-    isBlog: require('./sync/isBlog'),
+    isBlog: require('./sync/isBlog')
   }
 }
 
@@ -17,5 +17,3 @@ const methods = {
 module.exports = function Blog (server, opts) {
   return require('./lib/inject')(server, methods)
 }
-
-

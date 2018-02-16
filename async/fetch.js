@@ -4,14 +4,14 @@ const isBlog = require('../isBlog')
 
 module.exports = function (server) {
   return function fetch (blog, cb) {
-    if (!isBlog(blog)) return cb(`Not a valid blog ${JSON.stringify(blog, null, 2)}`)
+    if (!isBlog(blog)) return cb(new Error(`Not a valid blog ${JSON.stringify(blog, null, 2)}`))
 
     server.blobs.want(getBlob(blog), (err, success) => {
       if (err) {
         if (cb) return cb(err)
         else throw err
       }
-      
+
       cb(null, success)
     })
   }
@@ -23,4 +23,3 @@ function getBlob (msg) {
   // is just body of the message, 'msg content'
   else if (msg.blog) return msg.blog
 }
-
