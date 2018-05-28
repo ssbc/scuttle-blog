@@ -1,6 +1,6 @@
 {
   "name": "scuttle-blog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a scuttlebutt helper for all blog related messages",
   "main": "index.js",
   "scripts": {
