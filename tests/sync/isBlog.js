@@ -18,6 +18,14 @@ test('isBlog / blog schema', t => {
   }
   t.ok(isBlog(simpleBlog), 'validates simple blog')
 
+  const emptyThumbnail = {
+    type: 'blog',
+    title: 'An important idea',
+    blog: '&sfoIYo0kKKGI+TJYnznVDSs3BM/HjMWdCPXirvj9BfE=.sha256',
+    thumbnail: null
+  }
+  t.ok(isBlog(emptyThumbnail), 'validates simple blog with empty thumbnail')
+
   const incompleteBlog = {
     type: 'blog',
     title: 'An important idea'
@@ -69,6 +77,7 @@ test('isBlog / blog schema', t => {
     'rts': 1518568914727
   }
   t.ok(isBlog(actualBlog), 'validates a blog from ticktack')
+  if (!isBlog(actualBlog)) console.log(isBlog.errors)
 
   t.end()
 })

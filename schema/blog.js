@@ -8,8 +8,18 @@ module.exports = {
     type: {type: 'string', pattern: 'blog'},
     title: {type: 'string'},
     blog: {type: 'string', pattern: blobIdRegex},
-    summary: {type: 'string'},
-    thumbnail: {type: 'string', pattern: blobIdRegex},
+    summary: {
+      oneOf: [
+        {type: 'string'},
+        {type: 'null'}
+      ]
+    },
+    thumbnail: {
+      oneOf: [
+        {type: 'string', pattern: blobIdRegex},
+        {type: 'null'}
+      ]
+    },
     channel: {type: 'string'}
   }
 }
