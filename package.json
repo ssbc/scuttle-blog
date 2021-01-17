@@ -28,7 +28,6 @@
     "mutant": "^3.22.1",
     "pull-stream": "^3.6.1",
     "ssb-about": "^0.1.2",
-    "ssb-keys": "^7.0.13",
     "ssb-ref": "^2.9.1"
   },
   "devDependencies": {
