@@ -24,7 +24,6 @@
   "dependencies": {
     "is-my-json-valid": "^2.20.5",
     "libnested": "^1.5.0",
-    "lodash": "^4.17.20",
     "mutant": "^3.29.0",
     "pull-stream": "^3.6.14",
     "ssb-ref": "^2.14.3"
